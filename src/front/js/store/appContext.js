@@ -22,13 +22,20 @@ const injectContext = PassedComponent => {
 		);
 
 		useEffect(() => {
+			let token = localStorage.getItem("token")
+			if (state.store.token==undefined && token){
+					 state.actions.setToken(token)
+
+			}
+				//state.actions.create_token()
+				//state.actions.get_app()
 			/**
 			 * EDIT THIS!
 			 * This function is the equivalent to "window.onLoad", it only runs once on the entire application lifetime
 			 * you should do your ajax requests or fetch api requests here. Do not use setState() to save data in the
 			 * store, instead use actions, like this:
 			 **/
-			state.actions.getMessage(); // <---- calling this function from the flux.js actions
+			 // <---- calling this function from the flux.js actions
 		}, []);
 
 		// The initial value for the context is not null anymore, but the current state of this component,
